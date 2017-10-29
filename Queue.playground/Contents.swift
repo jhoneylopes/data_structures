@@ -4,6 +4,7 @@
  A complexidade das principais funções são:
  - Enqueue **O(1)**: O elemento é inserido no fim da fila.
  - Dequeue **O(n)**: O elemento é removido da primeira posição, o que obriga a uma reordenação de todos os elementos por isso o custo.
+ 
  Segue a implementação de uma Fila genérica.
  */
 
