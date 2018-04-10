@@ -4,6 +4,8 @@
  Algoritmos de ordenação
  */
 
+import Foundation
+
 // Ordenação Bolha: O(n²)
 func boubbleSort<T: Comparable>(_ array: [T]) -> [T] {
     var a = array
@@ -49,14 +51,32 @@ func selectionSort<T: Comparable>(_ array: [T]) -> [T] {
     return a
 }
 
-// Exemplo
+// QuickSort: O(nLogn)
+func QuickSort<T: Comparable>(_ array: [T]) -> [T] {
+    
+    if array.count < 1 { return array }
+    
+    let pivot = array.count/2
+    
+    let lower = array.filter{ $0 < array[pivot] }
+    let equal = array.filter{ $0 == array[pivot] }
+    let gratter = array.filter{ $0 > array[pivot] }
+    
+    return QuickSort(lower) + equal + QuickSort(gratter)
+}
 
-let list = [ 10, -1, 3, 9, 2, 27, 8, 5, 1, 3, 0, 26 ]
-// Apple Sort
-print(list.sorted())
-// Isertion Sort
-print(insertionSort(list))
-// Boubble Sort
-print(boubbleSort(list))
-// Selection Sort
-print(selectionSort(list))
+// Exemplo
+do {
+    let list = [ 10, -1, 3, 9, 2, 27, 8, 5, 1, 3, 0, 26 ]
+    //// Apple Sort
+    //print(list.sorted())
+    //// Isertion Sort
+    //print(insertionSort(list))
+    //// Boubble Sort
+    //print(boubbleSort(list))
+    //// Selection Sort
+    //print(selectionSort(list))
+    //// Quick Sort
+    //print(QuickSort(list))
+}
+
